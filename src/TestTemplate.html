@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>TestTemplate</title>
+    <script src="../lib/vue.min.js"></script>
+    <script src="../lib/vue-router.js"></script>
+    <script src="../lib/velocity.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../lib/animate.@3.5.1.css">
+</head>
+<body>
+<script>
+    //为自定义的选项 'myOption' 注入一个处理器。
+    Vue.mixin({
+        created: function () {
+            var myOption = this.$options.myOption;
+            if (myOption) {
+                document.write(myOption);
+            }
+        },
+    });
+    new Vue({
+        myOption: 'hello!',
+    });
+    // => "hello!"
+</script>
+</body>
+</html>
