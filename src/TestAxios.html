@@ -6,28 +6,26 @@
     <script src="../lib/vue-router.js"></script>
     <script src="../lib/velocity.min.js"></script>
     <script src="../lib/axios.min.@0.21.0.js"></script>
+    <script src="../lib/vue-resource.min@1.5.1.js"></script>
     <link rel="stylesheet" type="text/css" href="../lib/animate.@3.5.1.css">
 </head>
 <body>
 <div id="app">
-    {{info}}
+    <p style="font-size: 25px;">计数器：{{products.id}}</p>
+    <button @click="products.id++" style="font-size: 25px;">点我</button>
 </div>
 <script>
-    new Vue({
+    var myproduct = {"id":1, name:"book", "price":"20.00"};
+    var vm = new Vue({
         el: '#app',
-        data() {
-            return {
-                info: null
-            }
+        data: {
+            products: myproduct,
         },
-        mounted () {
-            axios
-                .post('https://www.runoob.com/try/ajax/demo_axios_post.php')
-                .then(response => (this.info = response))
-                .catch(function (error) { // 请求失败处理
-                    console.log(error);
-                });
-        },
+    });
+    Vue.delete(myproduct, 'price');
+    console.log(vm);
+    vm.$watch('products.id', function (nval, oval) {
+        alert('计数器值的变化: ' + oval + ' 变为 ' + nval + '!');
     });
 </script>
 </body>
