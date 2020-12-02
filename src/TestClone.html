@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<ul id="myList1">
+    <li>Coffee</li>
+    <li>Tea</li>
+</ul>
+<ul id="myList2">
+    <li>Water</li>
+    <li>Milk</li>
+</ul>
+
+<p id="demo">请点击按钮把项目从一个列表移动到另一个列表中。</p>
+
+<button onclick="myFunction()">亲自试一试</button>
+
+<script>
+    function myFunction()
+    {
+        // debugger;
+        var node = document.getElementById("myList2").lastElementChild;
+
+        var newNode = node.cloneNode(true);
+        document.getElementById("myList1").appendChild(newNode);
+    }
+</script>
+
+</body>
+</html>
