@@ -1,2 +1,2 @@
-var message:string = "Hello World";
-console.log(message);
+var msg: string = "RUNOOB" + ".COM";
+console.log(msg);
